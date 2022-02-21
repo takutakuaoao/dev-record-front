@@ -17,6 +17,7 @@ import toHast from "remark-rehype";
 import compiler from "rehype-react";
 import React from "react";
 import { visit } from "unist-util-visit";
+import SiteHead from "../../components/molecules/siteHead";
 
 // interface Category {
 //   id: string;
@@ -60,8 +61,23 @@ const Article = ({ article }) => {
     article.updated_at === null ? article.created_at : article.updated_at
   ).format("YYYY.MM.DD");
 
+  const pageTitle = article.title + " | " + process.env.NEXT_PUBLIC_SITE_TITLE;
+
+  const pageDescription =
+    article.content.length > 150
+      ? (article.content.substr(0, 150) + "...").replace(/\r?\n/g, '')
+      : article.content.replace(/\r?\n/g, '');
+
+  const pageUrl =
+    process.env.NEXT_PUBLIC_SITE_URL +
+    "/" +
+    article.category.slug +
+    "/" +
+    article.slug;
+
   return (
     <>
+      <SiteHead title={pageTitle} description={pageDescription} url={pageUrl} />
       <Header />
       <Box color={"gray.700"}>
         <Center py={12}>
@@ -119,9 +135,7 @@ function myRemarkPlugin() {
   };
 }
 
-export const getStaticProps = async ({
-  params,
-}) => {
+export const getStaticProps = async ({ params }) => {
   const apiUri =
     process.env.NEXT_PUBLIC_API_ARTICLE_INDEX +
     "/" +
@@ -141,16 +155,14 @@ export const getStaticPaths = async () => {
     true
   );
 
-  const allParams = state.data.list.map(
-    (article) => {
-      return {
-        params: {
-          categorySlug: article.category.slug,
-          articleSlug: article.slug,
-        },
-      };
-    }
-  );
+  const allParams = state.data.list.map((article) => {
+    return {
+      params: {
+        categorySlug: article.category.slug,
+        articleSlug: article.slug,
+      },
+    };
+  });
 
   return {
     paths: allParams,

@@ -5,6 +5,7 @@ import Footer from "../components/organisms/footer";
 import { GetStaticProps } from "next";
 import { getApi } from "../api/api";
 import moment from "moment";
+import SiteHead from "../components/molecules/siteHead";
 
 interface Category {
   id: string;
@@ -31,6 +32,7 @@ interface Props {
 const Index: React.VFC<Props> = ({ articles }) => {
   return (
     <>
+      <SiteHead />
       <Header />
       <Box color={"gray.700"}>
         <Center py={12}>
