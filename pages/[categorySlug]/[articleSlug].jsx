@@ -65,8 +65,8 @@ const Article = ({ article }) => {
 
   const pageDescription =
     article.content.length > 150
-      ? (article.content.substr(0, 150) + "...").replace(/\r?\n/g, '')
-      : article.content.replace(/\r?\n/g, '');
+      ? (article.content.substr(0, 150) + "...").replace(/\r?\n/g, "")
+      : article.content.replace(/\r?\n/g, "");
 
   const pageUrl =
     process.env.NEXT_PUBLIC_SITE_URL +
@@ -74,6 +74,11 @@ const Article = ({ article }) => {
     article.category.slug +
     "/" +
     article.slug;
+
+  const mainImgUrl =
+    article.main_img_url === null || article.main_img_url === ""
+      ? process.env.NEXT_PUBLIC_TEMP_DEFAULT_IMG_PATH
+      : article.main_img_url;
 
   return (
     <>
@@ -91,7 +96,7 @@ const Article = ({ article }) => {
               />
             </Box>
             <Box mb={12}>
-              <FullImage src={process.env.NEXT_PUBLIC_TEMP_DEFAULT_IMG_PATH} />
+              <FullImage src={mainImgUrl} />
             </Box>
             <Content>{processor.processSync(article.content).result}</Content>
           </Box>

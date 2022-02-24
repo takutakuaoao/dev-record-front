@@ -45,11 +45,13 @@ const Index: React.VFC<Props> = ({ articles }) => {
                     : article.updated_at
                 ).format("YYYY.MM.DD");
 
+                const mainImgUrl = (article.main_img_url === null || article.main_img_url === "") ? process.env.NEXT_PUBLIC_TEMP_DEFAULT_IMG_PATH : article.main_img_url!;
+
                 return (
                   <Box w="47%" boxShadow="lg" mb={8} key={article.id}>
                     <ArticleCard
                       date={formattedDate}
-                      imgPath={process.env.NEXT_PUBLIC_TEMP_DEFAULT_IMG_PATH}
+                      imgPath={mainImgUrl}
                       category={article.category.name}
                       title={article.title}
                       pageUrl={"/" + article.category.slug + "/" + article.slug}
