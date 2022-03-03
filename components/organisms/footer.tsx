@@ -27,22 +27,24 @@ const Footer = () => {
           </Box>
           <SnsContent />
         </HStack>
-        {/* <List listStyleType="none" color="white" spacing={2} fontSize={"xs"}>
+        <List listStyleType="none" color="white" spacing={2} fontSize={"xs"}>
           <ListItem>
             <NextLink href="/" passHref>
               <Link>ホーム</Link>
             </NextLink>
-          </ListItem> */}
+          </ListItem>
           {/* <ListItem>
             <Link>このサイトについて</Link>
           </ListItem> */}
           {/* <ListItem>
             <Link>サイトマップ</Link>
           </ListItem> */}
-          {/* <ListItem>
-            <Link>プライバシーポリシー</Link>
+          <ListItem>
+            <NextLink href="/privacy-policy" passHref>
+              <Link>プライバシーポリシー</Link>
+            </NextLink>
           </ListItem>
-        </List> */}
+        </List>
       </Flex>
     </Center>
   );

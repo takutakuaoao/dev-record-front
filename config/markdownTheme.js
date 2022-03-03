@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
 import H2 from '../components/molecules/h2';
 import H3 from '../components/molecules/h3';
-import P from '../components/molecules/p';
+import P from '../components/molecules/P';
 import Blockquote from '../components/molecules/blockquote';
 import A from '../components/atoms/a';
 import Information from '../components/molecules/infomation';

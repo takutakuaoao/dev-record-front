@@ -1,6 +1,6 @@
-import { Text } from "@chakra-ui/react";
-import Link from "next/link";
+import { Text, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
+import { SiteSetting } from "../../config/siteSetting";
 
 const Logo = (props) => {
   const { size } = props;
@@ -16,7 +16,7 @@ const Logo = (props) => {
             fontFamily={"Teko, sans-serif"}
             cursor="pointer"
           >
-            .Dev.Record
+            {SiteSetting.Title}
           </Text>
         </Link>
       </NextLink>
