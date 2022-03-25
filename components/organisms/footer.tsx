@@ -19,6 +19,7 @@ const Footer = () => {
         w="100%"
         alignItems="flex-start"
         py={8}
+        px={[4, 0]}
         justifyContent="space-between"
       >
         <HStack flexDir="column">

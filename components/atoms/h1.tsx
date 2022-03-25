@@ -3,7 +3,7 @@ import React from "react";
 
 const H1 = ({ children }: { children: React.ReactNode }) => {
   return (
-    <Heading fontSize={"3xl"} lineHeight={1.5} letterSpacing={2}>
+    <Heading fontSize={["xl", "3xl"]} lineHeight={1.5} letterSpacing={2}>
       {children}
     </Heading>
   );

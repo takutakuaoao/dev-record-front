@@ -10,7 +10,7 @@ import { Box, Center } from "@chakra-ui/react";
 import Content from "../../components/organisms/article/content";
 import Footer from "../../components/organisms/footer";
 
-import { unified } from "unified";
+import { unified, UsePlugin } from "unified";
 import parser from "remark-parse";
 import remarkDirective from "remark-directive";
 import toHast from "remark-rehype";
@@ -85,9 +85,9 @@ const Article = ({ article }) => {
       <SiteHead title={pageTitle} description={pageDescription} url={pageUrl} />
       <Header />
       <Box color={"gray.700"}>
-        <Center py={12}>
+        <Box py={[4, 12]} px={[2, 0]} display={["block", "flex"]} justifyContent={["normal", "center"]}>
           <Box maxW={"940px"} letterSpacing={0.8}>
-            <Box mb={12}>
+            <Box mb={[4, 12]}>
               <Subject
                 category={article.category.name}
                 id={article.id}
@@ -95,21 +95,21 @@ const Article = ({ article }) => {
                 date={formattedDate}
               />
             </Box>
-            <Box mb={12}>
+            <Box mb={[6, 12]}>
               <FullImage src={mainImgUrl} />
             </Box>
             <Content>{processor.processSync(article.content).result}</Content>
           </Box>
-        </Center>
+        </Box>
       </Box>
       <Footer />
     </>
   );
 };
 
-function myRemarkPlugin() {
+function myRemarkPlugin(): import('unified').Transformer {
   return (tree) => {
-    visit(tree, (node) => {
+    visit(tree, (node: any) => {
       if (node.type === "inlineCode") {
         const data = node.data || (node.data = {});
         data.hProperties = { inline: true };

@@ -35,7 +35,7 @@ const ArticleCard: React.VFC<Props> = ({
             >
               {category}
             </Box>
-            <Image src={imgPath} alt={title} objectFit="cover" h="220px" w="100%" />
+            <Image src={imgPath} alt={title} w="100%" />
           </Box>
           <Box px={2} py={4}>
             <Box color="gray.800" mb={2} fontSize="sm">{date}</Box>

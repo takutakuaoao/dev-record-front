@@ -1,7 +1,9 @@
+import { Box } from "@chakra-ui/react"
+
 const Content = (props) => {
     const { children } = props
     return (
-        <>{children}</>
+        <Box>{children}</Box>
     )
 }
 

@@ -3,7 +3,7 @@ import React from "react";
 
 const P = ({ children }: { children: React.ReactNode }) => {
   return (
-    <Text fontSize={"md"} lineHeight={2}>
+    <Text fontSize={["sm", "md"]} lineHeight={[1.8, 2]}>
       {children}
     </Text>
   );

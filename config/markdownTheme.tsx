@@ -15,7 +15,7 @@ const markdownTheme = {
     h2: props => {
         const { children } = props;
         return (
-            <Box mt={16} mb={8} >
+            <Box mt={[10, 16]} mb={[4, 8]} >
                 <H2>{children}</H2>
             </Box>
         )
@@ -23,7 +23,7 @@ const markdownTheme = {
     h3: props => {
         const { children } = props;
         return (
-            <Box mt={14} mb={8}>
+            <Box mt={[9, 14]} mb={[4, 8]}>
                 <H3>{children}</H3>
             </Box>
         )
@@ -31,7 +31,7 @@ const markdownTheme = {
     p: props => {
         const { children } = props;
         return (
-            <Box mb={6}>
+            <Box mb={[6, 6]}>
                 <P>{children}</P>
             </Box>
         )
@@ -48,7 +48,7 @@ const markdownTheme = {
         const name  = match && match[2] ? match[2] : '';
 
         return (
-            <Box mb={8}>
+            <Box mb={[6, 8]}>
                 <CodeBlock lang={lang} fileName={name.slice(1)}>{children}</CodeBlock>
             </Box>
 
@@ -57,7 +57,7 @@ const markdownTheme = {
     blockquote: props => {
         const { children } = props;
         return (
-            <Box my={8}>
+            <Box my={[6, 8]}>
                 <Blockquote>{children}</Blockquote>
             </Box>
         )
@@ -79,7 +79,7 @@ const markdownTheme = {
         if (depth === 1) styleType = 'circle'
 
         return (
-            <Box mb={4}>
+            <Box mb={[4, 4]}>
                 <List ordered={ordered} styleType={styleType} attrs={attrs}>{children}</List>
             </Box>
         )
@@ -88,7 +88,7 @@ const markdownTheme = {
         const { attributes, children } = props
         const { title } = attributes
         return (
-            <Box mb={8}>
+            <Box mb={[6, 8]}>
                 <Information title={title} colorScheme="blue">{children}</Information>
             </Box>
         )
@@ -97,7 +97,7 @@ const markdownTheme = {
         const { attributes, children } = props
         const { title } = attributes
         return (
-            <Box mb={8}>
+            <Box mb={[6, 8]}>
                 <Information title={title} colorScheme="orange">{children}</Information>
             </Box>
         )
@@ -106,7 +106,7 @@ const markdownTheme = {
         const { attributes, children } = props
         const { title } = attributes
         return (
-            <Box mb={8}>
+            <Box mb={[6, 8]}>
                 <Information title={title} colorScheme="red">{children}</Information>
             </Box>
         )
@@ -114,7 +114,7 @@ const markdownTheme = {
     wrap: props => {
         const { children } = props
         return (
-            <Box mb={8}>
+            <Box mb={[6, 8]}>
                 <Block>{children}</Block>
             </Box>
         )

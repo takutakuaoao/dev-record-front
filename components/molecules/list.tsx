@@ -11,6 +11,7 @@ const List = (props) => {
             as={ordered ? 'ol' : 'ul'}
             styleType={styleType}
             pl={4}
+            fontSize={["sm", "md"]}
             {...attrs}
         >
             {children}

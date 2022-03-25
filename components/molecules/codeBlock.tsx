@@ -4,10 +4,12 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
 const CodeBlock = (props) => {
   const { lang, fileName, children } = props;
-  const styles = { paddingTop: "26px" };
+  const styles = {
+    paddingTop: "26px",
+  };
 
   return (
-    <Box>
+    <Box fontSize={["sm", "md"]}>
       <Text
         bgColor={"gray.200"}
         fontSize={"xs"}

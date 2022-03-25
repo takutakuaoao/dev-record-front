@@ -7,7 +7,7 @@ import NextLink from "next/link";
 const Header = () => {
   return (
     <Center h="80px" bgColor="gray.900" color={"white"}>
-      <Flex maxWidth="1200px" w="100%" justify="space-between">
+      <Flex maxWidth="1200px" w="100%" justify="space-between" px={[4, 0]}>
         <Box>
           <Logo size="3xl" />
         </Box>

@@ -36,7 +36,7 @@ const Index: React.VFC<Props> = ({ articles }) => {
       <Header />
       <Box color={"gray.700"}>
         <Center py={12}>
-          <Box maxW={"940px"} letterSpacing={0.8}>
+          <Box maxW={"940px"} letterSpacing={0.8} px={[4, 0]}>
             <Flex justify="space-around" flexWrap="wrap" alignItems="stretch">
               {articles.map((article) => {
                 const formattedDate = moment(
@@ -48,7 +48,7 @@ const Index: React.VFC<Props> = ({ articles }) => {
                 const mainImgUrl = (article.main_img_url === null || article.main_img_url === "") ? process.env.NEXT_PUBLIC_TEMP_DEFAULT_IMG_PATH : article.main_img_url!;
 
                 return (
-                  <Box w="47%" boxShadow="lg" mb={8} key={article.id}>
+                  <Box w={["100%", "47%"]} boxShadow="lg" mb={8} key={article.id}>
                     <ArticleCard
                       date={formattedDate}
                       imgPath={mainImgUrl}

@@ -6,7 +6,7 @@ const Blockquote = (props) => {
     return (
         <Box borderColor={"gray.700"} borderWidth={1}>
             <QuoteIcon />
-            <Box px={8}>
+            <Box px={[6, 8]}>
                 <Text as='i'>
                     {children}
                 </Text>
