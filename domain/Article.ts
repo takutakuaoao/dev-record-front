@@ -14,7 +14,7 @@ export interface ArticleData {
 }
 
 export interface ArticleDataList {
-    readonly datalist: ArticleData[]
+  readonly datalist: ArticleData[];
 }
 
 export class Article {
@@ -24,7 +24,7 @@ export class Article {
   }
 
   getArticleDate(): string {
-    const date = this.isUpdatedArticle
+    const date = this.isUpdatedArticle()
       ? this.data.updated_at
       : this.data.created_at;
 
@@ -53,9 +53,9 @@ export class Article {
 }
 
 export const ArticleListFactory = (datalist: ArticleData[]): Article[] => {
-    return datalist.map(data => ArticleFactory(data));
-}
+  return datalist.map((data) => ArticleFactory(data));
+};
 
 const ArticleFactory = (data: ArticleData): Article => {
-    return new Article(data);
-}
+  return new Article(data);
+};
