@@ -13,14 +13,14 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
-    "types": ["reflect-metadata"],
+    "jsx": "preserve"
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/[categorySlug]/[articleSlug].tsx"
+    "pages/[categorySlug]/[articleSlug].tsx",
+    "lib/gtag.ts"
   ],
   "exclude": ["node_modules"]
 }
