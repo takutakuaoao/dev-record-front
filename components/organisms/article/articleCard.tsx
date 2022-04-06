@@ -23,7 +23,7 @@ const ArticleCard: React.VFC<Props> = ({
 }) => {
   return (
     <Box width="100%" _hover={{ opacity: 0.7 }}>
-      <NextLink href={pageUrl} passHref>
+      <NextLink href={pageUrl} passHref prefetch={false}>
         <Link _hover={{ textDecoration: null }}>
           <ArticleImage src={imgPath} alt={title} category={category} />
           <ArticleHeading date={date} title={title} />
