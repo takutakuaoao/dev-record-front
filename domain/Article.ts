@@ -54,7 +54,7 @@ export class Article {
   getMainImgUrl(): string {
     const defaultMainImg = process.env.NEXT_PUBLIC_TEMP_DEFAULT_IMG_PATH;
 
-    return this.hasMainImg ? this.data.main_img_url : defaultMainImg;
+    return this.hasMainImg() ? this.data.main_img_url : defaultMainImg;
   }
 
   getPageUrl(): string {

@@ -3,9 +3,13 @@ import ArticleCard from "../components/organisms/article/articleCard";
 import Header from "../components/organisms/header";
 import Footer from "../components/organisms/footer";
 import { GetStaticProps } from "next";
-import { getApi } from "../api/api";
 import SiteHead from "../components/molecules/siteHead";
-import { Article, ArticleData, ArticleDataList, ArticleListFactory } from "../domain/Article";
+import {
+  Article,
+  ArticleDataList,
+  ArticleListFactory,
+} from "../domain/Article";
+import { resolve } from "../api/article/ArticleRepository";
 
 interface Props {
   articles: Article[];
@@ -56,22 +60,14 @@ const MakeArticleCard = (article: Article): React.ReactElement => {
 };
 
 export const getStaticProps: GetStaticProps<ArticleDataList> = async () => {
-  const articleDataList = await FetchArticleListFromApi();
+  const articleRepository = resolve();
+  const articleDataList = await articleRepository.all();
 
   return {
     props: {
       datalist: articleDataList,
     },
   };
-};
-
-const FetchArticleListFromApi = async (): Promise<ArticleData[]> => {
-  const { state } = await getApi(
-    process.env.NEXT_PUBLIC_API_ARTICLE_INDEX!,
-    true
-  );
-
-  return state.data.list;
 };
 
 export default Index;

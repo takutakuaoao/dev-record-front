@@ -1,4 +1,5 @@
-import { Box, Image, Link, textDecoration } from "@chakra-ui/react";
+import { Box, Link, textDecoration } from "@chakra-ui/react";
+import Image from "next/image";
 import NextLink from "next/link";
 
 interface Props {
@@ -17,10 +18,11 @@ const ArticleCard: React.VFC<Props> = ({
   category,
 }) => {
   return (
-    <Box width="100%" _hover={{opacity: 0.7}}>
+    <Box width="100%" _hover={{ opacity: 0.7 }}>
       <NextLink href={pageUrl} passHref>
-        <Link _hover={{textDecoration: null}}>
+        <Link _hover={{ textDecoration: null }}>
           <Box pos="relative">
+            <Image src={imgPath} alt={title} width="940" height="500" />
             <Box
               px={4}
               py={2}
@@ -35,10 +37,11 @@ const ArticleCard: React.VFC<Props> = ({
             >
               {category}
             </Box>
-            <Image src={imgPath} alt={title} w="100%" />
           </Box>
           <Box px={2} py={4}>
-            <Box color="gray.800" mb={2} fontSize="sm">{date}</Box>
+            <Box color="gray.800" mb={2} fontSize="sm">
+              {date}
+            </Box>
             <Box color="gray.800" fontWeight="bold" fontSize="lg">
               {title}
             </Box>
