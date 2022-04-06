@@ -15,6 +15,9 @@ interface Props {
   articles: Article[];
 }
 
+/**
+ * トップページ
+ */
 const Index: React.VFC<ArticleDataList> = ({ datalist }) => {
   const articles = ArticleListFactory(datalist);
   return (
@@ -27,6 +30,9 @@ const Index: React.VFC<ArticleDataList> = ({ datalist }) => {
   );
 };
 
+/**
+ * コンテンツエリア（記事一覧のレイアウト）
+ */
 const ContentArea: React.VFC<Props> = ({ articles }) => {
   return (
     <Box color={"gray.700"}>
@@ -41,10 +47,16 @@ const ContentArea: React.VFC<Props> = ({ articles }) => {
   );
 };
 
+/**
+ * 記事一覧
+ */
 const ArticleList: React.VFC<Props> = ({ articles }) => {
   return <>{articles.map(MakeArticleCard)}</>;
 };
 
+/**
+ * 一つの記事情報のレイアウト
+ */
 const MakeArticleCard = (article: Article): React.ReactElement => {
   return (
     <Box w={["100%", "47%"]} boxShadow="lg" mb={8} key={article.data.id}>
@@ -59,6 +71,9 @@ const MakeArticleCard = (article: Article): React.ReactElement => {
   );
 };
 
+/**
+ * API通信をして記事一覧の情報を取得
+ */
 export const getStaticProps: GetStaticProps<ArticleDataList> = async () => {
   const articleRepository = resolve();
   const articleDataList = await articleRepository.all();
